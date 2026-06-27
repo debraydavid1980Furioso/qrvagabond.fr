@@ -1,0 +1,29 @@
+:root{--black:#050505;--white:#ffffff;--paper:#f6f4ef;--text:#111111;--muted:#686868;--gold:#c6a06b;--line:#dedbd4}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+.banner{background:var(--black);color:var(--white);padding:24px clamp(22px,5vw,60px) 22px}
+.banner-row{max-width:980px;margin:0 auto;display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.brand{font-size:clamp(2.2rem,9vw,5rem);line-height:.9;font-weight:900;letter-spacing:.02em}
+.number{font-size:clamp(2rem,8vw,4.6rem);line-height:.9;font-weight:900;color:var(--gold)}
+.tagline{max-width:980px;margin:14px auto 0;text-align:right;color:var(--gold);font-size:clamp(.95rem,3.2vw,1.35rem)}
+.page{width:min(100%,980px);margin:0 auto;padding:clamp(34px,6vw,72px) clamp(22px,5vw,44px) 70px;background:var(--white);min-height:100vh}
+.home{font-size:1.25rem;line-height:1.6}
+.home h1,.list h1{font-size:clamp(2.2rem,8vw,4rem);margin:0 0 34px}
+.home a,.list a{color:var(--black);font-weight:700}
+.text-block{font-size:clamp(1.45rem,5vw,2.15rem);line-height:1.45;margin-bottom:42px}
+.text-block p{margin:0 0 26px}
+.text-block .lead{margin-bottom:14px}
+.mark{width:58px;height:3px;background:var(--gold);margin:34px 0}
+.photo-card{margin:0}
+.photo-card img{display:block;width:100%;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.photo-card figcaption{margin-top:14px;color:var(--muted);font-style:italic;font-size:clamp(.95rem,3vw,1.15rem);text-align:right}
+.closing{margin-top:38px;text-align:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(1.35rem,5vw,2rem);line-height:1.25}
+.closing p{margin:0 0 10px}
+.category{margin:42px 0 18px;border-top:1px solid var(--line);padding-top:28px}
+.card{border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0;background:#fbfaf7}
+.card h3{margin:0 0 10px;font-size:1.35rem}
+.meta{color:var(--muted);margin:.35rem 0}
+.url{display:block;word-break:break-all;background:#f0eee8;padding:12px;border-radius:8px;margin-top:12px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.badge{display:inline-block;background:#e8f5e9;border:1px solid #b9ddb9;border-radius:999px;padding:4px 10px;font-size:.9rem}
+.stats li{margin:.4rem 0}
+@media(max-width:520px){.banner{padding-top:20px}.banner-row{align-items:flex-start}.tagline{text-align:left;max-width:310px}.page{padding-left:22px;padding-right:22px}.photo-card img{border-radius:6px}}
