@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR008 — Rapport d'observation</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #d5d7d3;
+    color: #252825;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.65;
+}
+
+/* BANDEAU HAUT */
+
+.top-banner {
+    background: #17372c;
+    border-bottom: 4px solid #b52e2e;
+    padding: 14px 16px;
+}
+
+.top-inner {
+    max-width: 920px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.top-logo {
+    width: 115px;
+    height: 115px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.top-text {
+    flex: 1;
+    color: #f2f1eb;
+}
+
+.top-text h1 {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(27px, 7vw, 48px);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.tagline {
+    margin-top: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tagline span {
+    color: #e34135;
+}
+
+.qr-number {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(25px, 7vw, 45px);
+    font-weight: 900;
+    color: #f2f1eb;
+    white-space: nowrap;
+    border-left: 2px solid #82958d;
+    padding-left: 18px;
+}
+
+.qr-number span {
+    color: #e34135;
+}
+
+/* RAPPORT */
+
+.report {
+    width: min(920px, 100%);
+    margin: auto;
+    background: #efeee9;
+    padding: 34px 20px 50px;
+}
+
+.file-data {
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    text-transform: uppercase;
+    border-left: 3px solid #17372c;
+    padding-left: 12px;
+    margin-bottom: 30px;
+}
+
+.main-title {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(30px, 8vw, 53px);
+    line-height: 1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin: 14px 0 28px;
+    font-size: 17px;
+}
+
+.archive-status {
+    color: #a92c2c;
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.metadata {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+.metadata td {
+    padding: 7px 4px;
+    border-bottom: 1px solid #a8aaa5;
+    vertical-align: top;
+}
+
+.metadata td:first-child {
+    width: 43%;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 30px 0;
+    border-top: 1px solid #555b56;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.study {
+    font-family: "Courier New", monospace;
+    color: #a92c2c;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.section h2 {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(20px, 5vw, 27px);
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.section p {
+    margin: 0 0 15px;
+    font-size: 17px;
+}
+
+.special-line {
+    margin: 19px 0 !important;
+    font-size: 19px !important;
+    font-style: italic;
+}
+
+.zonzon {
+    margin: 18px 0;
+    font-family: "Courier New", monospace;
+    font-size: 27px;
+    letter-spacing: 3px;
+    color: #a92c2c;
+}
+
+.data-list {
+    font-family: "Courier New", monospace;
+    line-height: 1.8;
+}
+
+/* CONCLUSION */
+
+.conclusion {
+    border-top: 3px solid #17372c;
+    margin-top: 15px;
+    padding: 34px 0 20px;
+}
+
+.conclusion h2 {
+    margin: 0 0 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.conclusion p {
+    margin: 0 0 15px;
+    font-size: 17px;
+}
+
+.hypothesis {
+    margin-top: 25px !important;
+    font-size: 20px !important;
+    font-style: italic;
+}
+
+/* NOTE */
+
+.final-note {
+    border-top: 1px solid #555b56;
+    margin-top: 25px;
+    padding-top: 30px;
+}
+
+.final-note h2 {
+    margin: 0 0 18px;
+    color: #a92c2c;
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.final-note p {
+    margin: 0 0 15px;
+    font-size: 17px;
+}
+
+/* BANDEAU BAS */
+
+.bottom-banner {
+    background: #17372c;
+    border-top: 4px solid #b52e2e;
+    color: #f2f1eb;
+    padding: 18px 16px;
+}
+
+.bottom-inner {
+    max-width: 920px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.bottom-logo {
+    width: 105px;
+    height: 105px;
+    object-fit: contain;
+}
+
+.bottom-info {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bottom-title {
+    font-size: clamp(22px, 6vw, 34px);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.bottom-title span {
+    color: #e34135;
+}
+
+.social {
+    margin-top: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* MOBILE */
+
+@media (max-width: 560px) {
+
+    .top-banner {
+        padding: 10px;
+    }
+
+    .top-inner {
+        gap: 10px;
+    }
+
+    .top-logo {
+        width: 72px;
+        height: 72px;
+    }
+
+    .top-text h1 {
+        font-size: 24px;
+    }
+
+    .tagline {
+        font-size: 8px;
+        letter-spacing: .4px;
+    }
+
+    .qr-number {
+        font-size: 24px;
+        padding-left: 10px;
+    }
+
+    .report {
+        padding: 28px 18px 40px;
+    }
+
+    .section p,
+    .conclusion p,
+    .final-note p {
+        font-size: 16.5px;
+    }
+
+    .bottom-inner {
+        gap: 15px;
+    }
+
+    .bottom-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .social {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 700px) {
+
+    .report {
+        padding: 50px 55px 65px;
+    }
+
+    .section p,
+    .conclusion p,
+    .final-note p {
+        font-size: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top-banner">
+
+    <div class="top-inner">
+
+        <img
+            src="logo-qrvagabond.png"
+            alt="QR Vagabond"
+            class="top-logo"
+        >
+
+        <div class="top-text">
+
+            <h1>QR VAGABOND</h1>
+
+            <div class="tagline">
+                Une rencontre. Une idée. Un instant.
+                <span>Des valeurs.</span>
+            </div>
+
+        </div>
+
+        <div class="qr-number">
+            QR<span>008</span>
+        </div>
+
+    </div>
+
+</header>
+
+<main class="report">
+
+<div class="file-data">
+DOSSIER N° QR008<br>
+TERRITOIRE : SAINT-JUST — ILLE-ET-VILAINE<br>
+CLASSIFICATION : OBSERVATION<br>
+STATUT : EN COURS
+</div>
+
+<h1 class="main-title">
+Rapport d’observation d’une tribu bretonne
+</h1>
+
+<div class="subtitle">
+Étude longitudinale — Saint-Just, Ille-et-Vilaine
+</div>
+
+<div class="archive-status">
+Archives — Étude en cours
+</div>
+
+<table class="metadata">
+
+<tr>
+<td>Zone d’origine :</td>
+<td>Saint-Just, Ille-et-Vilaine</td>
+</tr>
+
+<tr>
+<td>Population observée :</td>
+<td>environ 40 individus</td>
+</tr>
+
+<tr>
+<td>Périodicité :</td>
+<td>rassemblement annuel</td>
+</tr>
+
+<tr>
+<td>Statut de l’étude :</td>
+<td>toujours en cours</td>
+</tr>
+
+</table>
+
+
+<section class="section">
+
+<div class="section-heading">
+<h2>Préambule</h2>
+</div>
+
+<p>Depuis plusieurs décennies, une population aujourd’hui dispersée se rassemble périodiquement sur son territoire d’origine.</p>
+
+<p>Malgré les années, les déplacements et l’intégration régulière de nouveaux individus, le phénomène présente une remarquable stabilité.</p>
+
+<p>Nos chercheurs disposent désormais de suffisamment d’observations pour établir le présent rapport.</p>
+
+<p>Certaines conclusions restent néanmoins vivement contestées.</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+<div class="study">Étude 01</div>
+<h2>Migration annuelle</h2>
+</div>
+
+<p>Chaque année, les différents membres de la tribu convergent vers ce territoire historique.</p>
+
+<p>Les arrivées s’effectuent progressivement.</p>
+
+<p>Certains individus arrivent tôt.</p>
+
+<p>D’autres arrivent plus tard. Nos études démontrent que ce sont souvent les mêmes.</p>
+
+<p>Après plusieurs années d’observation, l’hypothèse du hasard n’est plus considérée comme sérieuse.</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+<div class="study">Étude 02</div>
+<h2>Intégration des populations extérieures</h2>
+</div>
+
+<p>Le groupe utilise une terminologie particulière pour désigner les individus provenant d’autres lignées :</p>
+
+<p class="special-line">« les pièces rapportées ».</p>
+
+<p>Ce terme pourrait laisser supposer une certaine distance avec les individus concernés.</p>
+
+<p>Les observations démontrent exactement l’inverse.</p>
+
+<p>L’intégration est généralement rapide et, après quelque temps, il devient difficile de déterminer qui a adopté qui.</p>
+
+<p>De nouveaux spécimens devraient être observés cette année.</p>
+
+<p>Merci de ne pas les effrayer.</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+<div class="study">Étude 03</div>
+<h2>Comportements rituels</h2>
+</div>
+
+<p>Après certains repas, une répartition spontanée des individus est régulièrement observée.</p>
+
+<p>Les plus jeunes se dirigent vers une zone permettant la poursuite collective d’un ballon.</p>
+
+<p>Une partie des hommes se rassemble autour d’une planche en bois afin d’y projeter des galettes en fonte, avec une précision dont l’évaluation peut donner lieu à discussion.</p>
+
+<p>Une partie des femmes quitte temporairement le groupe pour parcourir la campagne environnante.</p>
+
+<p>Aucune consigne n’est donnée.</p>
+
+<p>Aucun programme n’est établi.</p>
+
+<p>Le phénomène se reproduit pourtant.</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+<div class="study">Étude 04</div>
+<h2>Particularité comportementale</h2>
+</div>
+
+<p>Plusieurs individus masculins apparentés présentent une caractéristique remarquable :</p>
+
+<p>une très grande stabilité de leurs opinions.</p>
+
+<p>Même confrontés à un argument contraire.</p>
+
+<p>Même confrontés à plusieurs arguments contraires.</p>
+
+<p>Même confrontés à des faits.</p>
+
+<p>Il s’avère que les intéressés contestent catégoriquement cette observation.</p>
+
+<p>Ce qui, malheureusement, tend à la confirmer.</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+<div class="study">Étude 05</div>
+<h2>Phénomène professionnel</h2>
+</div>
+
+<p>Nos chercheurs ont relevé une concentration anormalement élevée d’individus liés directement ou indirectement à l’entreprise Yves Rocher.</p>
+
+<p>L’hypothèse d’une coïncidence reste officiellement privilégiée.</p>
+
+<p>Elle devient néanmoins difficile à défendre.</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+<div class="study">Étude 06</div>
+<h2>Anomalie scientifique</h2>
+</div>
+
+<p>Une technique expérimentale aurait autrefois été proposée afin d’optimiser les barbecues futurs :</p>
+
+<p class="special-line">
+placer la braise restante au congélateur pour le prochain barbecue.
+</p>
+
+<p>À ce jour, aucune publication scientifique n’a permis d’en démontrer l’efficacité.</p>
+
+<p>La méthode n’a pourtant jamais totalement disparu des archives.</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+<div class="study">Étude 07</div>
+<h2>Dossier crypté</h2>
+</div>
+
+<p>Les archives mentionnent également l’existence passée d’un individu ou objet identifié sous le nom de :</p>
+
+<div class="zonzon">
+ZONZON
+</div>
+
+<p class="data-list">
+Nature : peluche.<br>
+Ancien propriétaire : identifié.<br>
+Niveau de menace : faible.<br>
+Importance historique : inexplicablement élevée.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+<div class="study">Étude 08</div>
+<h2>Doctrine économique</h2>
+</div>
+
+<p>Un individu de la tribu semble avoir développé sa propre théorie économique.</p>
+
+<p>Celle-ci peut être résumée par une formule régulièrement observée :</p>
+
+<p class="special-line">
+« La fête continue, le pognon diminue. »
+</p>
+
+<p>Nos chercheurs ont tenté d’en vérifier la pertinence.</p>
+
+<p>Les données recueillies jusqu’à présent semblent malheureusement lui donner raison.</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-heading">
+<div class="study">Étude 09</div>
+<h2>Organisation territoriale</h2>
+</div>
+
+<p>Un développement récent mérite d’être signalé.</p>
+
+<p>Depuis le printemps 2026, un membre de la tribu exerce également la fonction de maire du territoire historique.</p>
+
+<p>Nos chercheurs ignorent encore s’il s’agit d’une intégration réussie…</p>
+
+<p>ou d’une prise de contrôle progressive.</p>
+
+</section>
+
+
+<section class="conclusion">
+
+<h2>Conclusion provisoire</h2>
+
+<p>Après plusieurs décennies d’observation, un phénomène reste difficile à expliquer.</p>
+
+<p>Les individus vieillissent.</p>
+
+<p>De nouvelles générations apparaissent.</p>
+
+<p>Des pièces rapportées deviennent progressivement impossibles à distinguer des autres.</p>
+
+<p>Les habitudes évoluent.</p>
+
+<p>Certaines, manifestement, beaucoup moins.</p>
+
+<p>Et pourtant, année après année, cette population continue de se retrouver.</p>
+
+<p>Toujours avec la même facilité.</p>
+
+<p>Toujours avec la même capacité à se chambrer.</p>
+
+<p>Et, curieusement, toujours avec l’envie de recommencer.</p>
+
+<p>Nos chercheurs ont longtemps cherché une explication plus complexe.</p>
+
+<p>Ils commencent à envisager l’hypothèse la plus simple :</p>
+
+<p class="hypothesis">
+ces gens semblent simplement heureux de se retrouver.
+</p>
+
+</section>
+
+
+<section class="final-note">
+
+<h2>Note aux participants</h2>
+
+<p>Si vous êtes actuellement à Saint-Just et que vous avez découvert ce rapport en scannant l’un des sujets observés…</p>
+
+<p>nous sommes au regret de vous informer que vous faites désormais partie de l’étude.</p>
+
+</section>
+
+</main>
+
+
+<footer class="bottom-banner">
+
+<div class="bottom-inner">
+
+<img
+src="logo-qrvagabond.png"
+alt="QR Vagabond"
+class="bottom-logo"
+>
+
+<div class="bottom-info">
+
+<div class="bottom-title">
+Archives <span>familiales</span>
+</div>
+
+<div class="social">
+@R.VAGABOND · #ONESTLA
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
